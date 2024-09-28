@@ -30,21 +30,21 @@ GupShup is a real-time chat application that allows users to communicate instant
 
 ## Technologies Used
 
-- Node.js: JavaScript runtime for building the backend.
-- Express.js: Fast, minimalist web framework for Node.js.
-- Socket.IO: For handling real-time communication.
-- MongoDB: NoSQL database for storing user and message data.
-- Mongoose: ODM for MongoDB, making database interactions easier.
-- JWT (JSON Web Token): For secure authentication and authorization.
-- bcrypt: For hashing passwords and securing user data.
-- Cors: To enable cross-origin resource sharing for API requests.
+- **Node.js:** JavaScript runtime for building the backend.
+- **Express.js:** Fast, minimalist web framework for Node.js.
+- **Socket.IO:** For handling real-time communication.
+- **MongoDB:** NoSQL database for storing user and message data.
+- **Mongoose:** ODM for MongoDB, making database interactions easier.
+- **JWT (JSON Web Token):** For secure authentication and authorization.
+- **bcrypt:** For hashing passwords and securing user data.
+- **Cors:** To enable cross-origin resource sharing for API requests.
 
 ## Architecture
 The backend follows a modular architecture, separating concerns into various modules like:
 
-- Authentication: Handles user signup, login, and JWT issuance.
-- Messaging: Manages real-time communication and chat messages.
-- Database: MongoDB is used as the database, managed by Mongoose.
+- **Authentication**: Handles user signup, login, and JWT issuance.
+- **Messaging**: Manages real-time communication and chat messages.
+- **Database**: MongoDB is used as the database, managed by Mongoose.
 
 
 ## Getting Started
@@ -88,7 +88,7 @@ Create a .env file in the root directory and add the following environment varia
 
 ```bash
 # Server
-PORT=5000
+PORT=5001
 
 # MongoDB
 MONGO_URI=<Your MongoDB URI>
@@ -102,6 +102,23 @@ SOCKET_PORT=<Socket.IO Port>
 # CORS Configuration
 CORS_ORIGIN=<Frontend URL>
 ```
+Make sure to configure the correct values based on your environment (development or production).
 
+## API Endpoints
+Here are some of the key API routes for the GupShup backend:
+
+### Authentication
+- **POST** `/api/auth/register:` Register a new user.
+- **POST** `/api/auth/login:` Login an existing user and issue a JWT.
+
+### Messaging
+- **GET** `/api/messages/:chatId:` Get all messages in a specific chat.
+- **POST** `/api/messages:` Send a new message to a chat.
+
+### Users
+- **GET** `/api/users/:userId:` Get user profile information.
+- **GET** >/api/users: Get all users (for search, friends list, etc.).
+
+For real-time messaging, the backend communicates with the frontend via Socket.IO.
 
 
