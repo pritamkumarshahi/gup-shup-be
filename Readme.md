@@ -14,8 +14,6 @@ GupShup is a real-time chat application that allows users to communicate instant
 - [Installation](#installation)
 - [Running the Application](#running-the-application)
 - [Environment Variables](#environment-variables)
-- [Contributing](#contributing)
-- [License]("contributing")
 
 
 ## Features
@@ -28,7 +26,7 @@ GupShup is a real-time chat application that allows users to communicate instant
 - Modular architecture for easy scalability.
 
 
-## Technologies Used
+## Technologies
 
 - **Node.js:** JavaScript runtime for building the backend.
 - **Express.js:** Fast, minimalist web framework for Node.js.
