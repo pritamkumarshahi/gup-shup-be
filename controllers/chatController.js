@@ -1,7 +1,6 @@
 const Chat = require('../models/Chat');
 const Message = require('../models/Messages'); // Assuming you have a Message model
 
-// Create a new chat or append a message to an existing chat
 exports.createChat = async (req, res) => {
   const { text, participants, sender } = req.body;
 
@@ -39,8 +38,6 @@ exports.createChat = async (req, res) => {
   }
 };
 
-
-
 exports.getChats = async (req, res) => {
   const { recipientId } = req.query;
   const userId = req.userId; // Assuming you get this from the token middleware
@@ -54,7 +51,7 @@ exports.getChats = async (req, res) => {
       .populate('messages'); // Populate messages in the chat
 
     if (!chat) {
-      return res.status(404).json({ error: 'No chat found between the users' });
+      return res.status(200).json([]);
     }
 
     return res.status(200).json(chat);
@@ -63,4 +60,3 @@ exports.getChats = async (req, res) => {
     return res.status(500).json({ error: 'Internal server error' });
   }
 };
-
