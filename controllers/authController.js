@@ -39,7 +39,6 @@ exports.login = async (req, res) => {
   }
 };
 
-
 exports.users = async (req, res) => {
   try {
     const users = await User.find().select('name email');
@@ -49,9 +48,8 @@ exports.users = async (req, res) => {
     return res.status(500).json({ message: 'Internal server error' });
   }
 };
-exports.forgotPassword = async (req, res) => {
-  console.log('email');
 
+exports.forgotPassword = async (req, res) => {
   const { email, hostUrl } = req.body;
   try {
     const user = await User.findOne({ email });
@@ -62,9 +60,6 @@ exports.forgotPassword = async (req, res) => {
 
     // Generate reset token
     const resetToken = user.getResetPasswordToken();
-    console.log("Reset token sent to email:", resetToken);
-console.log("Hashed token stored in DB:", user.resetPasswordToken);
-
     await user.save({ validateBeforeSave: false });
 
     const resetUrl = `${hostUrl}/password-reset/${resetToken}`;
